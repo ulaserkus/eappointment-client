@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eAppointmentServer.Domain", "eAppointmentServer.Domain\eAppointmentServer.Domain.csproj", "{E8AC29A6-DDEA-4EF3-972C-090D46862D4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eAppointmentServer.Application", "eAppointmentServer.Application\eAppointmentServer.Application.csproj", "{F10DAE3F-25A4-493F-B427-BC324A21063F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eAppointmentServer.Infrastructure", "eAppointmentServer.Infrastructure\eAppointmentServer.Infrastructure.csproj", "{1481370C-C08C-468C-8E19-07DEC643CD4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eAppointmentServer.WebAPI", "eAppointmentServer.WebAPI\eAppointmentServer.WebAPI.csproj", "{9C1F46B6-D4A2-43F5-85BB-70E78FC70E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3582B068-6BF4-4509-8506-EB1227AB74BF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8AC29A6-DDEA-4EF3-972C-090D46862D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AC29A6-DDEA-4EF3-972C-090D46862D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AC29A6-DDEA-4EF3-972C-090D46862D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AC29A6-DDEA-4EF3-972C-090D46862D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10DAE3F-25A4-493F-B427-BC324A21063F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10DAE3F-25A4-493F-B427-BC324A21063F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10DAE3F-25A4-493F-B427-BC324A21063F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10DAE3F-25A4-493F-B427-BC324A21063F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1481370C-C08C-468C-8E19-07DEC643CD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1481370C-C08C-468C-8E19-07DEC643CD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1481370C-C08C-468C-8E19-07DEC643CD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1481370C-C08C-468C-8E19-07DEC643CD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1F46B6-D4A2-43F5-85BB-70E78FC70E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1F46B6-D4A2-43F5-85BB-70E78FC70E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1F46B6-D4A2-43F5-85BB-70E78FC70E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1F46B6-D4A2-43F5-85BB-70E78FC70E98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

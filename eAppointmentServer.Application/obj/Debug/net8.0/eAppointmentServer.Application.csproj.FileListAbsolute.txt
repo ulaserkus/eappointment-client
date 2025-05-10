@@ -1,0 +1,15 @@
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\bin\Debug\net8.0\eAppointmentServer.Application.deps.json
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\bin\Debug\net8.0\eAppointmentServer.Application.dll
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\bin\Debug\net8.0\eAppointmentServer.Application.pdb
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\bin\Debug\net8.0\eAppointmentServer.Domain.dll
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\bin\Debug\net8.0\eAppointmentServer.Domain.pdb
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.csproj.AssemblyReference.cache
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.AssemblyInfoInputs.cache
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.AssemblyInfo.cs
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.csproj.CoreCompileInputs.cache
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppoint.F26F487F.Up2Date
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.dll
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\refint\eAppointmentServer.Application.dll
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.pdb
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\ref\eAppointmentServer.Application.dll

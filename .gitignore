@@ -1,0 +1,44 @@
+# -----------------------------
+# Angular / Node.js (client)
+# -----------------------------
+client/node_modules/
+client/dist/
+client/.angular/
+client/.env
+client/.npm/
+client/.output/
+
+# -----------------------------
+# .NET / Visual Studio (server)
+# -----------------------------
+server/bin/
+server/obj/
+server/.vs/
+server/*.user
+server/*.suo
+server/*.userosscache
+server/*.sln.docstates
+
+# Rider
+.idea/
+
+# -----------------------------
+# Global (her yerde geçerli)
+# -----------------------------
+*.log
+*.tmp
+*.temp
+*.DS_Store
+Thumbs.db
+*.swp
+
+# Environment / secrets
+.env
+.env.*
+
+# OS-specific
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+desktop.ini
