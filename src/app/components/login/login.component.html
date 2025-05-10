@@ -1,0 +1,36 @@
+<div class="row d-flex justify-content-center align-items-center vh-100">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>Sign In</h3>
+                <p class="text-muted">Please enter your credentials</p>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label>Username or Email</label>
+                        <input type="text" class="form-control" placeholder="Enter your username or email"
+                            name="usernameOrEmail" required minlength="3">
+                    </div>
+                    <div class="form-group mt-2 position-relative">
+                        <label>Password</label>
+                        <input type="password" #passwordInput class="form-control" placeholder="Enter your password"
+                            name="password" required minlength="8">
+
+                        <!-- @if (passwordInput.type === 'password') {
+                        <i class="fa-solid fa-eye-slash eye" (click)="showOrHidePassword()"></i>
+                        }@else {
+                        <i class="fa-solid fa-eye eye" (click)="showOrHidePassword()"></i>
+                        } -->
+
+                    </div>
+                    <div class="form-group mt-2">
+                        <button class="btn btn-dark w-100">
+                            <i class="fa-solid fa-lock me-1"></i> Sign In
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
