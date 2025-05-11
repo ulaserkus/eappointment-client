@@ -62,5 +62,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.DoctorsController",
+    "Method": "Update",
+    "RelativePath": "api/Doctors/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Doctors.UpdateDoctor.UpdateDoctorByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

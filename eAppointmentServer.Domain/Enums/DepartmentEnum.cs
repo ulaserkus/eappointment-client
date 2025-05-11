@@ -36,7 +36,6 @@ public sealed class DepartmentEnum : SmartEnum<DepartmentEnum>
     public static readonly DepartmentEnum NEUROSURGERY = new DepartmentEnum("NEUROSURGERY", 29);
     public static readonly DepartmentEnum TRANSFUSION_MEDICINE = new DepartmentEnum("TRANSFUSION_MEDICINE", 30);
     public static readonly DepartmentEnum PATHOLOGY = new DepartmentEnum("PATHOLOGY", 31);
-    public static readonly DepartmentEnum DERMATOLOGIC_SURGERY = new DepartmentEnum("DERMATOLOGIC_SURGERY", 32);
 
 
     public DepartmentEnum(string name, int value) : base(name, value)
