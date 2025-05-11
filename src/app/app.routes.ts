@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { inject } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { DoctorsComponent } from './components/doctors/doctors.component';
 
 export const routes: Routes = [
   {
@@ -14,16 +15,20 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutsComponent,
-    canActivateChild: [()=> inject(AuthService).isAuthenticated()],
+    canActivateChild: [() => inject(AuthService).isAuthenticated()],
     children: [
       {
         path: '',
         component: HomeComponent,
       },
+      {
+        path: 'doctors',
+        component: DoctorsComponent,
+      },
     ],
   },
   {
     path: '**',
-    component:NotFoundComponent,
-  }
+    component: NotFoundComponent,
+  },
 ];
