@@ -14,5 +14,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.DoctorsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Doctors/GetAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Doctors.GetAllDoctors.GetAllDoctorsQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

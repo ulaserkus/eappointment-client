@@ -17,3 +17,4 @@ C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmen
 C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Infrastructure\obj\Debug\net8.0\eAppointmentServer.Infrastructure.pdb
 C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Infrastructure\obj\Debug\net8.0\eAppointmentServer.Infrastructure.genruntimeconfig.cache
 C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Infrastructure\obj\Debug\net8.0\ref\eAppointmentServer.Infrastructure.dll
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Infrastructure\obj\Debug\net8.0\eAppointmentServer.Infrastructure.sourcelink.json

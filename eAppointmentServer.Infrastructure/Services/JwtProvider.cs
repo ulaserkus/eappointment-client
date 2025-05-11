@@ -20,6 +20,7 @@ namespace eAppointmentServer.Infrastructure.Services
                     new Claim(ClaimTypes.Name, user.FullName),
                     new Claim(ClaimTypes.GivenName, user.FirstName),
                     new Claim(ClaimTypes.Surname, user.LastName),
+                    new Claim("Username", user.UserName ?? string.Empty),
                   ],
                 notBefore: DateTime.UtcNow,
                 expires: DateTime.UtcNow.AddHours(1),

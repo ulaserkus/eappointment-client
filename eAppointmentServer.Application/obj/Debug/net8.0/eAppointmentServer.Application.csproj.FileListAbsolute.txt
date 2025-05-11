@@ -13,3 +13,4 @@ C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmen
 C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\refint\eAppointmentServer.Application.dll
 C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.pdb
 C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\ref\eAppointmentServer.Application.dll
+C:\Users\ulas.erkus\OneDrive - CARETTA\Desktop\Projeler\eAppointment\eAppointmentServer\eAppointmentServer.Application\obj\Debug\net8.0\eAppointmentServer.Application.sourcelink.json
