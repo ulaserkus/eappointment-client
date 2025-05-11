@@ -1,4 +1,5 @@
 ﻿using eAppointmentServer.Application.Features.Doctors.CreateDoctor;
+using eAppointmentServer.Application.Features.Doctors.DeleteDoctorById;
 using eAppointmentServer.Application.Features.Doctors.GetAllDoctors;
 using eAppointmentServer.WebAPI.Abstractions;
 using MediatR;
@@ -21,6 +22,13 @@ namespace eAppointmentServer.WebAPI.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateDoctorCommand command, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(command, cancellationToken);
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(DeleteDoctorByIdCommand command, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(command, cancellationToken);
             return StatusCode(result.StatusCode, result);

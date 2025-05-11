@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "eAppointmentServer.WebAPI.Controllers.DoctorsController",
+    "Method": "Delete",
+    "RelativePath": "api/Doctors/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Doctors.DeleteDoctorById.DeleteDoctorByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.DoctorsController",
     "Method": "GetAll",
     "RelativePath": "api/Doctors/GetAll",
     "HttpMethod": "POST",
