@@ -5,6 +5,8 @@ import { FormValidateDirective } from 'form-validate-angular';
 import { HttpService } from '../../services/http.service';
 import { LoginResponseModel } from '../../models/login-response';
 import { Router } from '@angular/router';
+import { SwalService } from '../../services/swal.service';
+import { Constants } from '../../constants';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,7 @@ export class LoginComponent {
     | ElementRef<HTMLInputElement>
     | undefined;
 
-  constructor(private http: HttpService, private router: Router) {}
+  constructor(private http: HttpService, private router: Router,private swalService : SwalService) {}
 
   showOrHidePassword() {
     if (this.passwordInput === undefined) {
@@ -37,6 +39,21 @@ export class LoginComponent {
   signIn(form: NgForm) {
     if (form.valid) {
       this.http.post<LoginResponseModel>('auth/login', this.login, (res) => {
+
+        if (!res.isSuccessful) {
+          this.swalService.callToast(
+            'error',
+            res.errorMessages?.join(', ') || 'An error occurred',
+            Constants.AlertIcons.error
+          );
+        }
+        
+        this.swalService.callToast(
+          'success',
+          'Login successful',
+          Constants.AlertIcons.success
+        );
+        
         localStorage.setItem('token', res.data!.token);
         this.router.navigate(['/']);
       });

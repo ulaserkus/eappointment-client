@@ -1,8 +1,17 @@
+import { SweetAlertIcon } from "sweetalert2";
 import { DepartmentModel } from "./models/department-model";
 
 export class Constants{
     public static readonly API_URL: string = 'https://localhost:7022/api';
 
+    public static readonly AlertIcons: Record<SweetAlertIcon, SweetAlertIcon> = {
+        success: 'success',
+        error: 'error',
+        warning: 'warning',
+        info: 'info',
+        question: 'question',
+    };
+  
     public static readonly Departments: DepartmentModel[] = [
         { name: "CARDIOVASCULAR", value: 1 },
         { name: "NEUROLOGICAL", value: 2 },

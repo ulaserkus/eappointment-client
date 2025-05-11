@@ -7,6 +7,7 @@ import { DepartmentModel } from '../../models/department-model';
 import { Constants } from '../../constants';
 import { FormsModule, NgForm } from '@angular/forms';
 import { FormValidateDirective } from 'form-validate-angular';
+import { SwalService } from '../../services/swal.service';
 
 @Component({
   selector: 'app-doctors',
@@ -24,7 +25,10 @@ export class DoctorsComponent {
 
   @ViewChild('addModelCloseBtn') closeModelBtn!: ElementRef<HTMLButtonElement>;
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private swalService: SwalService
+  ) {}
 
   ngOnInit() {
     this.getAll();
@@ -45,12 +49,42 @@ export class DoctorsComponent {
       'doctors/create',
       this.createDoctor,
       (res) => {
-        this.getAll();
         if (res.isSuccessful) {
           this.closeModelBtn.nativeElement.click();
           this.createDoctor = new DoctorModel();
           form.resetForm();
+          this.swalService.callToast(
+            'success',
+            'Doctor added successfully',
+            Constants.AlertIcons.success
+          );
         }
+        this.getAll();
+      }
+    );
+  }
+
+  deleteDoctor(doctorId: string) {
+    this.swalService.callSwal(
+      'Are you sure?',
+      'You won\'t be able to revert this!',
+      'Yes, delete it!',
+      Constants.AlertIcons.warning,
+      () => {
+        this.httpService.post<string>(
+          'doctors/delete',
+          { id: doctorId },
+          (res) => {
+            if (res.isSuccessful) {
+              this.swalService.callToast(
+                'success',
+                'Doctor deleted successfully',
+                Constants.AlertIcons.success
+              );
+            }
+            this.getAll();
+          }
+        );
       }
     );
   }
