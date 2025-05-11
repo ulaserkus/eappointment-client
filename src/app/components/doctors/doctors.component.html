@@ -40,9 +40,10 @@
                 <tr>
                     <td>{{$index + 1}}</td>
                     <td>{{doctor.fullName}}</td>
-                    <td>{{doctor.department.name}}</td>
+                    <td>{{doctor.department?.name}}</td>
                     <td>
-                        <button class="btn btn-sm btn-outline-primary me-1" title="Update">
+                        <button class="btn btn-sm btn-outline-primary me-1" title="Update" data-bs-toggle="modal"
+                            data-bs-target="#updateModal" (click)="getDoctor(doctor)">
                             <i class="fa-solid fa-edit"></i>
                         </button>
 
@@ -71,21 +72,64 @@
 
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" [(ngModel)]="createDoctor.firstName" name="firstName" class="form-control"
+                        <input type="text" [(ngModel)]="doctorToCreate.firstName" name="firstName" class="form-control"
                             id="firstName" placeholder="First Name" required minlength="3">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group mt-2">
                         <label for="lastName">Last Name</label>
-                        <input type="text" [(ngModel)]="createDoctor.lastName" name="lastName" class="form-control"
+                        <input type="text" [(ngModel)]="doctorToCreate.lastName" name="lastName" class="form-control"
                             id="lastName" placeholder="Last Name" required minlength="3">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group mt-2">
                         <label for="department">Department</label>
-                        <select class="form-control" [(ngModel)]="createDoctor.department" name="department"
+                        <select class="form-control" [(ngModel)]="doctorToCreate.departmentValue" name="department"
                             aria-placeholder="Select Department" required>
-                            <option [ngValue]="null" disabled >Select Department</option>
+                            <option [value]=0 disabled selected>Select Department</option>
+                            <option *ngFor="let department of departments" [value]="department.value">
+                                {{department.name}}
+                            </option>
+                        </select>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-dark w-100">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Doctor Form</h1>
+                <button #updateModelCloseBtn type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <form #updateDoctorForm="ngForm" formValidate autocomplete="off" (ngSubmit)="updateDoctor(updateDoctorForm)">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" [(ngModel)]="doctorToUpdate.firstName" name="firstName" class="form-control"
+                            id="firstName" placeholder="First Name" required minlength="3">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" [(ngModel)]="doctorToUpdate.lastName" name="lastName" class="form-control"
+                            id="lastName" placeholder="Last Name" required minlength="3">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="department">Department</label>
+                        <select class="form-control" [(ngModel)]="doctorToUpdate.departmentValue" name="department"
+                            aria-placeholder="Select Department" required>
+                            <option [value]=0 disabled>Select Department</option>
                             <option *ngFor="let department of departments" [value]="department.value">
                                 {{department.name}}
                             </option>

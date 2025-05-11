@@ -18,12 +18,12 @@ import { SwalService } from '../../services/swal.service';
 })
 export class DoctorsComponent {
   doctors: DoctorModel[] = [];
-  departments: DepartmentModel[] = Constants.Departments.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
-  createDoctor: DoctorModel = new DoctorModel();
+  departments: DepartmentModel[] = Constants.Departments.sort((a,b)=> a.name.localeCompare(b.name));
+  doctorToCreate: DoctorModel = new DoctorModel();
+  doctorToUpdate: DoctorModel = new DoctorModel();
 
-  @ViewChild('addModelCloseBtn') closeModelBtn!: ElementRef<HTMLButtonElement>;
+  @ViewChild('addModelCloseBtn') addModalCloseButton!: ElementRef<HTMLButtonElement>;
+  @ViewChild('updateModelCloseBtn') updateModalCloseButton!: ElementRef<HTMLButtonElement>;
 
   constructor(
     private httpService: HttpService,
@@ -47,11 +47,11 @@ export class DoctorsComponent {
 
     this.httpService.post<string>(
       'doctors/create',
-      this.createDoctor,
+      this.doctorToCreate,
       (res) => {
         if (res.isSuccessful) {
-          this.closeModelBtn.nativeElement.click();
-          this.createDoctor = new DoctorModel();
+          this.addModalCloseButton.nativeElement.click();
+          this.doctorToCreate = new DoctorModel();
           form.resetForm();
           this.swalService.callToast(
             'success',
@@ -64,10 +64,34 @@ export class DoctorsComponent {
     );
   }
 
+  getDoctor(doctor: DoctorModel) {
+    this.doctorToUpdate = { ...doctor };
+    this.doctorToUpdate.departmentValue = doctor.department.value;
+  }
+
+  updateDoctor(form: NgForm) {
+    if (!form.valid) {
+      return;
+    }
+    this.httpService.post<string>('doctors/update', this.doctorToUpdate, (res) => {
+      if (res.isSuccessful) {
+        this.swalService.callToast(
+          'success',
+          'Doctor updated successfully',
+          Constants.AlertIcons.success
+        );
+      }
+      this.updateModalCloseButton.nativeElement.click();
+      this.doctorToUpdate = new DoctorModel();
+      form.resetForm();
+      this.getAll();
+    });
+  }
+
   deleteDoctor(doctorId: string) {
     this.swalService.callSwal(
       'Are you sure?',
-      'You won\'t be able to revert this!',
+      "You won't be able to revert this!",
       'Yes, delete it!',
       Constants.AlertIcons.warning,
       () => {

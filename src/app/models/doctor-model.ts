@@ -1,3 +1,4 @@
+import { Constants } from '../constants';
 import { DepartmentModel } from './department-model';
 
 export class DoctorModel {
@@ -6,4 +7,5 @@ export class DoctorModel {
   lastName: string = '';
   fullName: string = '';
   department: DepartmentModel = new DepartmentModel();
+  departmentValue:number = 0;
 }
