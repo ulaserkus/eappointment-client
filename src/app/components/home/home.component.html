@@ -38,7 +38,10 @@
         <div class="mt-2">
             <dx-scheduler [dataSource]="appointments" currentView="week" [startDayHour]="9" [endDayHour]="18"
                 [showAllDayPanel]="false" textExpr="title"
-                (onAppointmentFormOpening)="onAppointmentFormOpening($event)">
+                (onAppointmentFormOpening)="onAppointmentFormOpening($event)" 
+                (onAppointmentUpdating)="onAppointmentUpdating($event)"
+                (onAppointmentDeleting)="onAppointmentDeleting($event)">
+>
             </dx-scheduler>
         </div>
     </ng-container>

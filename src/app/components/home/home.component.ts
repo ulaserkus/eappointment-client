@@ -127,25 +127,72 @@ export class HomeComponent {
     );
   }
 
- getAllAppointments() {
-  if (!this.selectedDoctorId || this.selectedDoctorId === 'null') {
-    this.appointments = [];
-    return;
-  }
-
-  this.httpService.post<AppointmentModel[]>(
-    'Appointments/GetAllByDoctorId',
-    { doctorId: this.selectedDoctorId },
-    (res) => {
-      this.appointments = res.data || [];
+  getAllAppointments() {
+    if (!this.selectedDoctorId || this.selectedDoctorId === 'null') {
+      this.appointments = [];
+      return;
     }
-  );
-}
+
+    this.httpService.post<AppointmentModel[]>(
+      'Appointments/GetAllByDoctorId',
+      { doctorId: this.selectedDoctorId },
+      (res) => {
+        this.appointments = res.data || [];
+      }
+    );
+  }
 
   trackByDepartment(index: number, department: any) {
     return department.value;
   }
   trackByDoctor(index: number, doctor: any) {
     return doctor.id;
+  }
+
+  onAppointmentUpdating(e: any) {
+    e.cancel = true;
+
+    const updatedAppointment = {
+      id: e.oldData.id,
+      startDate: this.date.transform(e.newData.startDate, 'dd.MM.yyyy HH:mm'),
+      endDate: this.date.transform(e.newData.endDate, 'dd.MM.yyyy HH:mm'),
+    };
+
+    this.httpService.post('Appointments/UpdateAppointment', updatedAppointment, (res) => {
+      if (res.isSuccessful) {
+        this.swal.callToast(
+          'Success',
+          'Appointment updated successfully',
+          Constants.AlertIcons.success
+        );
+        this.getAllAppointments();
+      }
+    });
+  }
+  
+  onAppointmentDeleting(e: any) {
+    e.cancel = true;
+    this.swal.callSwal(
+      'Are you sure?',
+      "You won't be able to revert this!",
+      'Delete',
+      Constants.AlertIcons.warning,
+      () => {
+        this.httpService.post<AppointmentModel>(
+          'Appointments/DeleteAppointmentById',
+          { id: e.appointmentData.id },
+          (res) => {
+            if (res.isSuccessful) {
+              this.swal.callToast(
+                'Success',
+                'Appointment deleted successfully',
+                Constants.AlertIcons.success
+              );
+              this.getAllAppointments();
+            }
+          }
+        );
+      }
+    );
   }
 }
