@@ -18,7 +18,7 @@ internal sealed class CreateAppointmentCommandHandler(IAppointmentRepository app
         if (request.DoctorId == Guid.Empty)
             return Result<Guid>.Failure("Doctor ID cannot be empty");
 
- 
+
         var startDate = Convert.ToDateTime(request.StartDate);
         var endDate = Convert.ToDateTime(request.EndDate);
 
@@ -46,6 +46,15 @@ internal sealed class CreateAppointmentCommandHandler(IAppointmentRepository app
             patientId = patient.Id;
 
         }
+
+        var isAppointmentDateValid = await appointmentRepository.AnyAsync(a =>
+                       (a.EndDate > startDate && a.StartDate <= endDate) ||
+                       (a.StartDate >= startDate && a.EndDate <= endDate) ||
+                       (a.StartDate <= startDate && a.EndDate >= endDate)
+                      );
+
+        if (isAppointmentDateValid)
+            return Result<Guid>.Failure("Appointment time is not available");
 
         var appointment = new Appointment
         {

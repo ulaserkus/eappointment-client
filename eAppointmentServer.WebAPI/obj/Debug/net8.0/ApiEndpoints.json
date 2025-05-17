@@ -17,6 +17,22 @@
   },
   {
     "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
+    "Method": "DeleteAppointmentById",
+    "RelativePath": "api/Appointments/DeleteAppointmentById",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Appointments.DeleteAppointmentById.DeleteAppointmentByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
     "Method": "GetAllByDoctorId",
     "RelativePath": "api/Appointments/GetAllByDoctorId",
     "HttpMethod": "POST",
@@ -58,6 +74,22 @@
       {
         "Name": "query",
         "Type": "eAppointmentServer.Application.Features.Appointments.GetPatientByIdentityNumber.GetPatientByIdentityNumberQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
+    "Method": "UpdateAppointment",
+    "RelativePath": "api/Appointments/UpdateAppointment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Appointments.UpdateAppointment.UpdateAppointmentCommand",
         "IsRequired": true
       }
     ],
