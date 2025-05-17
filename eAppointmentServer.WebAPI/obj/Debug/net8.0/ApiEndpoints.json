@@ -78,5 +78,69 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.PatientsController",
+    "Method": "Create",
+    "RelativePath": "api/Patients/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Patients.CreatePatient.CreatePatientCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.PatientsController",
+    "Method": "Delete",
+    "RelativePath": "api/Patients/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Patients.DeletePatient.DeletePatientByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.PatientsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Patients/GetAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Patients.GetAllPatients.GetAllPatientsQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.PatientsController",
+    "Method": "Update",
+    "RelativePath": "api/Patients/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Patients.UpdatePatient.UpdatePatientByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
