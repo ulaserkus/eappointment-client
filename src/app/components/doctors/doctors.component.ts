@@ -8,11 +8,12 @@ import { Constants } from '../../constants';
 import { FormsModule, NgForm } from '@angular/forms';
 import { FormValidateDirective } from 'form-validate-angular';
 import { SwalService } from '../../services/swal.service';
+import { DoctorPipe } from '../../pipe/doctor.pipe';
 
 @Component({
   selector: 'app-doctors',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, FormValidateDirective],
+  imports: [CommonModule, RouterLink, FormsModule, FormValidateDirective,DoctorPipe],
   templateUrl: './doctors.component.html',
   styleUrl: './doctors.component.css',
 })
@@ -21,6 +22,7 @@ export class DoctorsComponent {
   departments: DepartmentModel[] = Constants.Departments.sort((a,b)=> a.name.localeCompare(b.name));
   doctorToCreate: DoctorModel = new DoctorModel();
   doctorToUpdate: DoctorModel = new DoctorModel();
+  search: string = '';
 
   @ViewChild('addModelCloseBtn') addModalCloseButton!: ElementRef<HTMLButtonElement>;
   @ViewChild('updateModelCloseBtn') updateModalCloseButton!: ElementRef<HTMLButtonElement>;
