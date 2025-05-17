@@ -21,6 +21,10 @@ internal sealed class CreatePatientCommandHandler : IRequestHandler<CreatePatien
     }
     public async Task<Result<Guid>> Handle(CreatePatientCommand request, CancellationToken cancellationToken)
     {
+        var existingPatient = await _patientRepository.GetByExpressionAsync(p => p.IdentityNumber == request.IdentityNumber, cancellationToken);
+        if (existingPatient is not null)
+            return Result<Guid>.Failure("Patient with this identity number already exists");
+
         var patient = _mapper.Map<Patient>(request);
         await _patientRepository.AddAsync(patient, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);

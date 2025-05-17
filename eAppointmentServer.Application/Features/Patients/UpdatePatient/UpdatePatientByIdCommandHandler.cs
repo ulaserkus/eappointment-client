@@ -23,8 +23,16 @@ internal sealed class UpdatePatientByIdCommandHandler : IRequestHandler<UpdatePa
     public async Task<Result<string>> Handle(UpdatePatientByIdCommand request, CancellationToken cancellationToken)
     {
         var patient = await _patientRepository.GetByExpressionAsync(p => p.Id == request.Id, cancellationToken);
+
         if (patient is null)
             return Result<string>.Failure("Patient not found");
+
+        if (request.IdentityNumber != patient.IdentityNumber &&
+            await _patientRepository.AnyAsync(p => p.IdentityNumber == request.IdentityNumber))
+        {
+            return Result<string>.Failure("Patient with this identity number already exists");
+        }
+
         var patientToUpdate = _mapper.Map<Patient>(request);
         _patientRepository.Update(patientToUpdate);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
