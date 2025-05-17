@@ -89,7 +89,7 @@
                     <div class="form-group mt-2">
                         <label for="identityNumber">Identity No</label>
                         <input type="text" [(ngModel)]="patientToCreate.identityNumber" name="identityNumber" class="form-control"
-                            id="identityNumber" placeholder="Identity No" required minlength="3">
+                            id="identityNumber" placeholder="Identity No" required minlength="11" maxlength="11">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group mt-2">
@@ -150,7 +150,7 @@
                      <div class="form-group mt-2">
                         <label for="identityNumber">Identity No</label>
                         <input type="text" [(ngModel)]="patientToUpdate.identityNumber" name="identityNumber" class="form-control"
-                            id="identityNumber" placeholder="Identity No" required minlength="3">
+                            id="identityNumber" placeholder="Identity No" required minlength="11" maxlength="11">
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group mt-2">

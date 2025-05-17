@@ -1,1 +1,113 @@
-<p>home works!</p>
+<div class="mt-3 d-flex justify-content-between align-items-center">
+    <h3>Welcome e-Appointment</h3>
+</div>
+
+<div class="mt-2">
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mt-1">
+            <label>Department</label>
+            <select (change)="getAllDoctors()" name="department" [(ngModel)]="selectedDepartmentValue"
+                class="form-control">
+                <option [value]="0">Select...</option>
+                <ng-container *ngFor="let department of departments; trackBy: trackByDepartment">
+                    <option [value]="department.value">{{ department.name }}</option>
+                </ng-container>
+            </select>
+        </div>
+
+        <ng-container *ngIf="selectedDepartmentValue > 0">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mt-1">
+                <label>Doctor</label>
+                <ng-container *ngIf="doctors.length === 0; else doctorSelect">
+                    <input disabled class="form-control" value="Doctor doesn't exist" />
+                </ng-container>
+                <ng-template #doctorSelect>
+                    <select (change)="getAllAppointments()" name="doctor" [(ngModel)]="selectedDoctorId"
+                        class="form-control">
+                        <option [value]="null">Select...</option>
+                        <ng-container *ngFor="let doctor of doctors; trackBy: trackByDoctor">
+                            <option [value]="doctor.id">{{ doctor.fullName }}</option>
+                        </ng-container>
+                    </select>
+                </ng-template>
+            </div>
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="selectedDoctorId">
+        <div class="mt-2">
+            <dx-scheduler [dataSource]="appointments" currentView="week" [startDayHour]="9" [endDayHour]="18"
+                [showAllDayPanel]="false" textExpr="title"
+                (onAppointmentFormOpening)="onAppointmentFormOpening($event)">
+            </dx-scheduler>
+        </div>
+    </ng-container>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create Appointment Form</h1>
+                <button #addModelCloseBtn type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <form #createAppointmentForm="ngForm" formValidate autocomplete="off"
+                (ngSubmit)="create(createAppointmentForm)">
+                <div class="modal-body">
+                    <div class="form-group text-center mt-2">
+                        <span class="alert alert-primary">
+                            {{ createAppointmentModel.startDate }} - {{ createAppointmentModel.endDate }}
+                        </span>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="identityNumber">Identity No</label>
+                        <input (change)="getPatient()" type="text" [(ngModel)]="createAppointmentModel.identityNumber"
+                            name="identityNumber" class="form-control" id="identityNumber" placeholder="Identity No"
+                            required minlength="11" maxlength="11" />
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="firstName">First Name</label>
+                        <input type="text" [disabled]="createAppointmentModel.patientId !== null"
+                            [(ngModel)]="createAppointmentModel.firstName" name="firstName" class="form-control"
+                            id="firstName" placeholder="First Name" required minlength="3" />
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" [disabled]="createAppointmentModel.patientId !== null"
+                            [(ngModel)]="createAppointmentModel.lastName" name="lastName" class="form-control"
+                            id="lastName" placeholder="Last Name" required minlength="3" />
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="city">City</label>
+                        <input type="text" [disabled]="createAppointmentModel.patientId !== null"
+                            [(ngModel)]="createAppointmentModel.city" name="city" class="form-control" id="city"
+                            placeholder="City" required minlength="3" />
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="town">Town</label>
+                        <input type="text" [disabled]="createAppointmentModel.patientId !== null"
+                            [(ngModel)]="createAppointmentModel.town" name="town" class="form-control" id="town"
+                            placeholder="Town" required minlength="3" />
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="address">Full Address</label>
+                        <textarea [disabled]="createAppointmentModel.patientId !== null"
+                            [(ngModel)]="createAppointmentModel.fullAddress" name="address" class="form-control"
+                            id="address" placeholder="Address" required minlength="3"></textarea>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-dark w-100">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
