@@ -1,5 +1,69 @@
 [
   {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
+    "Method": "Create",
+    "RelativePath": "api/Appointments/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Appointments.CreateAppointment.CreateAppointmentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
+    "Method": "GetAllByDoctorId",
+    "RelativePath": "api/Appointments/GetAllByDoctorId",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Appointments.GetAllAppointments.GetAllAppointmentsByDoctorIdQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
+    "Method": "GetAllDoctorsByDepartment",
+    "RelativePath": "api/Appointments/GetAllDoctorsByDepartment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Appointments.GetAllDoctorsByDepartment.GetAllDoctorsByDepartmentQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.AppointmentsController",
+    "Method": "GetPatientByIdentityNumber",
+    "RelativePath": "api/Appointments/GetPatientByIdentityNumber",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Appointments.GetPatientByIdentityNumber.GetPatientByIdentityNumberQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "eAppointmentServer.WebAPI.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/Login",
