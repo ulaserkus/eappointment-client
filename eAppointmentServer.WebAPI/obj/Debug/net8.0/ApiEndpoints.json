@@ -238,5 +238,101 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.RolesController",
+    "Method": "Sync",
+    "RelativePath": "api/Roles/Sync",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Roles.RoleSync.RoleSyncCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.UsersController",
+    "Method": "Create",
+    "RelativePath": "api/Users/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Users.CreateUser.CreateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/Users/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Users.DeleteUserById.DeleteUserByIdCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.UsersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Users/GetAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Users.GetAllUsers.GetAllUsersQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.UsersController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Users/GetAllRoles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "eAppointmentServer.Application.Features.Users.GetAllRolesForUsers.GetAllRolesForUsersQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "eAppointmentServer.WebAPI.Controllers.UsersController",
+    "Method": "Update",
+    "RelativePath": "api/Users/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "eAppointmentServer.Application.Features.Users.UpdateUser.UpdateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

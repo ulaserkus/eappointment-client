@@ -27,7 +27,7 @@ internal sealed class LoginCommandHandler(UserManager<AppUser> userManager, IJwt
             return Result<LoginCommandResponse>.Failure("Invalid password");
         }
 
-        string token = jwtProvider.CreateToken(user);
+        string token = await jwtProvider.CreateTokenAsync(user);
         var response = new LoginCommandResponse(token);
         return Result<LoginCommandResponse>.Succeed(response);
     }

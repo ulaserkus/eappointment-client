@@ -4,7 +4,7 @@ POST {{eAppointmentServer.WebAPI_HostAddress}}/api/Auth/Login
 Accept: application/json
 Content-Type: application/json
 {
-  "userNameOrEmail" : "admin",
+  "userNameOrEmail" : "admin@admin2.com",
   "password" : "123aB***"
 }
 ###
