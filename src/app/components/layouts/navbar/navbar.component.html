@@ -13,6 +13,11 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/patients">Patients</a>
                 </li>
+                @if(auth.tokenDecode.roles.includes('Admin')) {
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/users">Users</a>
+                </li>
+                }
             </ul>
             <span class="me-2">Ulaş Erkuş</span>
             <button class="btn btn-outline-danger" type="button" (click)="signOut()">

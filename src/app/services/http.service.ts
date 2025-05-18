@@ -17,7 +17,11 @@ export class HttpService {
     errorCallback?: (err: HttpErrorResponse) => void
   ) {
     this.http
-      .post<ResultModel<T>>(`${Constants.API_URL}/${apiUrl}`, body)
+      .post<ResultModel<T>>(`${Constants.API_URL}/${apiUrl}`, body,{
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
       .subscribe({
         next: (res) => {
           if (res.data !== undefined && res.data != null) callback(res);

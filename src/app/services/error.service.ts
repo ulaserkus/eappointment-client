@@ -12,6 +12,12 @@ export class ErrorService {
   errorHandler(error: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
 
+    if (error.status === 401) {
+      errorMessage = 'Unauthorized access! Please log in again.';
+      this.swal.callToast('error', errorMessage, Constants.AlertIcons.error);
+      return;
+    }
+
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.error.message}`;
     } else {

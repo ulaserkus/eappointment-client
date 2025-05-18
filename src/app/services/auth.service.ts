@@ -16,11 +16,6 @@ export class AuthService {
 
     if (token) {
       const decode: JwtPayload | any = jwtDecode(token);
-      this.tokenDecode.id = decode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-      this.tokenDecode.email = decode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
-      this.tokenDecode.name = decode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-      this.tokenDecode.username =  decode['Username'];
-
       const exp = decode.exp;
       const now = new Date().getTime() / 1000;
       if (exp < now) {
@@ -28,6 +23,21 @@ export class AuthService {
         this.router.navigate(['/login']);
         return false;
       }
+
+      this.tokenDecode.id =
+        decode[
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
+        ];
+      this.tokenDecode.email =
+        decode[
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'
+        ];
+      this.tokenDecode.name =
+        decode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+      this.tokenDecode.username = decode['Username'];
+      this.tokenDecode.roles = JSON.parse(
+        decode['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+      );
 
       return true;
     }

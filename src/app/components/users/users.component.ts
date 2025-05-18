@@ -1,31 +1,31 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { PatientModel } from '../../models/patient-model';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Constants } from '../../constants';
+import { FormsModule, NgForm } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import { SwalService } from '../../services/swal.service';
-import { FormsModule, NgForm } from '@angular/forms';
-import { Constants } from '../../constants';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormValidateDirective } from 'form-validate-angular';
-import { PatientPipe } from '../../pipe/patient.pipe';
+import { UserPipe } from '../../pipe/user.pipe';
+import { UserModel } from '../../models/user-model';
+import { RoleModel } from '../../models/role-model';
 
 @Component({
-  selector: 'app-patient',
+  selector: 'app-users',
   standalone: true,
-  imports: [
-    CommonModule,
+  imports: [   CommonModule,
     RouterLink,
     FormsModule,
     FormValidateDirective,
-    PatientPipe,
-  ],
-  templateUrl: './patients.component.html',
-  styleUrl: './patients.component.css',
+    UserPipe],
+  templateUrl: './users.component.html',
+  styleUrl: './users.component.css',
 })
-export class PatientsComponent implements OnInit {
-  patients: PatientModel[] = [];
-  patientToCreate: PatientModel = new PatientModel();
-  patientToUpdate: PatientModel = new PatientModel();
+export class UsersComponent {
+  users: UserModel[] = [];
+  userToCreate: UserModel = new UserModel();
+  userToUpdate: UserModel = new UserModel();
+  roles : RoleModel[] = [];
 
   @ViewChild('addModelCloseBtn')
   addModalCloseButton!: ElementRef<HTMLButtonElement>;
@@ -40,30 +40,36 @@ export class PatientsComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
+    this.getAllRoles();
   }
 
   getAll() {
-    this.httpService.post<PatientModel[]>('patients/getall', {}, (res) => {
-      this.patients = res.data!;
+    this.httpService.post<UserModel[]>('users/getall', {}, (res) => {
+      this.users = res.data!;
     });
   }
 
-  addPatient(form: NgForm) {
+  getAllRoles() {
+    this.httpService.post<RoleModel[]>('users/getallroles', {}, (res) => {
+      this.roles = res.data!;
+    });
+  }
+
+  add(form: NgForm) {
     if (!form.valid) {
       return;
     }
-
     this.httpService.post<string>(
-      'patients/create',
-      this.patientToCreate,
+      'users/create',
+      this.userToCreate,
       (res) => {
         if (res.isSuccessful) {
           this.addModalCloseButton.nativeElement.click();
-          this.patientToCreate = new PatientModel();
+          this.userToCreate = new UserModel();
           form.resetForm();
           this.swalService.callToast(
             'success',
-            'Patient added successfully',
+            'User added successfully',
             Constants.AlertIcons.success
           );
         }
@@ -72,34 +78,35 @@ export class PatientsComponent implements OnInit {
     );
   }
 
-  getPatient(patient: PatientModel) {
-    this.patientToUpdate = { ...patient };
+  get(user: UserModel) {
+    this.userToUpdate = { ...user };
+    console.log(this.userToUpdate);
   }
 
-  updatePatient(form: NgForm) {
+  update(form: NgForm) {
     if (!form.valid) {
       return;
     }
     this.httpService.post<string>(
-      'patients/update',
-      this.patientToUpdate,
+      'users/update',
+      this.userToUpdate,
       (res) => {
         if (res.isSuccessful) {
           this.swalService.callToast(
             'success',
-            'Patient updated successfully',
+            'User updated successfully',
             Constants.AlertIcons.success
           );
         }
         this.updateModalCloseButton.nativeElement.click();
-        this.patientToUpdate = new PatientModel();
+        this.userToUpdate = new UserModel();
         form.resetForm();
         this.getAll();
       }
     );
   }
 
-  deletePatient(patientId: string) {
+  delete(userId: string) {
     this.swalService.callSwal(
       'Are you sure?',
       "You won't be able to revert this!",
@@ -107,13 +114,13 @@ export class PatientsComponent implements OnInit {
       Constants.AlertIcons.warning,
       () => {
         this.httpService.post<string>(
-          'patients/delete',
-          { id: patientId },
+          'users/delete',
+          { id: userId },
           (res) => {
             if (res.isSuccessful) {
               this.swalService.callToast(
                 'success',
-                'Patient deleted successfully',
+                'User deleted successfully',
                 Constants.AlertIcons.success
               );
             }
